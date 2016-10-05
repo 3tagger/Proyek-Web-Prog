@@ -11,16 +11,25 @@
                     <form action="{{ route('contact/post') }}" method="POST">
 
                         {{ csrf_field() }}
-
                         <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}" id="group-name">
                             <label for="name">Name : </label>
-                            <input type="text" name="name" id="name" placeholder="Insert your name here..." value="{{ old('name') }}" class="form-control"/>
+                            <?php
+                                $name = '';
+                                if(old('name')) $name = old('name');
+                                else if($user) $name = $user->name;
+                            ?>
+                            <input type="text" name="name" id="name" placeholder="Insert your name here..." value="{{ $name }}" class="form-control"/>
                             <p class="help-block">{{ $errors->first('name') }}</p>
                         </div>
 
                         <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}" id="group-email">
                             <label for="email">Email : </label>
-                            <input type="text" name="email" id="email" placeholder="Insert your email here..." value="{{ old('email') }}" class="form-control"/>
+                            <?php
+                                $email = '';
+                                if(old('email')) $email = old('email');
+                                else if($user) $email = $user->email;
+                            ?>
+                            <input type="text" name="email" id="email" placeholder="Insert your email here..." value="{{ $email }}" class="form-control"/>
                             <p class="help-block">{{ $errors->first('email') }}</p>
                         </div>
 

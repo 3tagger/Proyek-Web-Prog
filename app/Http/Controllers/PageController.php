@@ -20,6 +20,7 @@ class PageController extends Controller
 
     public function showContactForm() {
 
+        $user = auth()->user();
     	return view('frontend.contact');
 
     }
