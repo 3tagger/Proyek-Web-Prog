@@ -1,0 +1,19 @@
+#editor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  display: inline;
+  height: 50%;
+}
+
+#preview {
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  display: inline;
+}
